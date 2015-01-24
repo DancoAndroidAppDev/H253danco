@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blueGrey_500">#607d8b</color>
+    <color name="blueGrey_700">#455a64</color>
+    <color name="deepOrange_A400">#ff3d00</color>
+    <color name="deepOrange_A700">#dd2c00</color>
+
+    <color name="colorPrimary">@color/blueGrey_500</color>
+    <color name="colorPrimaryDark">@color/blueGrey_700</color>
+    <color name="colorAccent">@color/deepOrange_A400</color>
+</resources>

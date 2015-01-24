@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:buttonStyle">@style/OrangeButton</item>
+
+        <item name="android:imageButtonStyle">@style/ImageButtonAppTheme</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/gridview_item_background</item>
+    </style>
+
+    <style name="OrangeButton" parent="android:Widget.Holo.Light.Button">
+        <item name="android:background">@drawable/deep_orange_button_background</item>
+        <item name="android:minWidth">100dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+
+    <style name="TextAppearanceBody1Inverse" parent="Base.TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+
+</resources>

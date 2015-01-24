@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/cellContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:paddingBottom="@dimen/grid_item_vertical_padding"
+                android:paddingEnd="@dimen/grid_item_horizontal_margin"
+                android:paddingLeft="@dimen/grid_item_horizontal_padding"
+                android:paddingRight="@dimen/grid_item_horizontal_padding"
+                android:paddingStart="@dimen/grid_item_horizontal_margin"
+                android:paddingTop="@dimen/grid_item_vertical_padding">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@android:color/holo_orange_dark"
+        android:contentDescription="@string/image_description"
+        android:layout_alignTop="@+id/gridCellTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/gridCellTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="@integer/titleMaxLines"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        tools:text="Sample Title"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/image"
+        android:layout_toStartOf="@+id/image"/>
+
+    <TextView
+        android:id="@+id/gridCellSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gridCellTitle"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:layout_toStartOf="@id/image"
+        android:layout_toLeftOf="@id/image"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:ellipsize="end"
+        android:maxLines="@integer/subTitleMaxLines"
+        android:text="@string/sample_subtitle_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="?android:listDivider"/>
+</RelativeLayout>

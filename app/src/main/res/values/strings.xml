@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">H252 danco</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="contact">contact</string>
+    <string name="title_contact_details">Contact Details</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="contact_list_activity">Start Contact List</string>
+    <string name="title_activity_dynamic_grid_view">DynamicGridViewActivity</string>
+    <string name="sample_subtitle_text">Sample subtitle text</string>
+    <string name="image_description">Image</string>
+    <string name="gridViewButtonText">Start GridView</string>
+    <string name="item_subtitle_sample">Sample subtitle text</string>
+
+</resources>

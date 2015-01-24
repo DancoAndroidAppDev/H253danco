@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.danco.homework2.h252danco.fragment.ContactDetailFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView android:id="@+id/contact_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top" />
+
+    <TextView android:id="@+id/contactDob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:editTextBackground"
+        android:layout_marginTop="96dp"
+        android:layout_below="@+id/contact_street_address"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+    <TextView android:id="@+id/city_state_zip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_street_address"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+    <EditText android:id="@+id/contact_street_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>
