@@ -27,7 +27,11 @@ import com.example.danco.homework2.h252danco.R;
  */
 public class ContactListFragment extends Fragment implements AbsListView.OnItemClickListener {
 
+    private static final String EXTRA_VALUES = ContactListFragment.class.getSimpleName() + ".values";
     private static final String EXTRA_TEXT = ContactListFragment.class.getSimpleName() + ".text";
+    private static final String EXTRA_SELECTION = ContactListFragment.class.getSimpleName() + ".selection";
+
+    private int selectedItem = 0;
 
     private ItemFragmentListener mListener;
 
@@ -68,7 +72,8 @@ public class ContactListFragment extends Fragment implements AbsListView.OnItemC
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact_list, container, false);
 
@@ -80,8 +85,20 @@ public class ContactListFragment extends Fragment implements AbsListView.OnItemC
         mListView.setOnItemClickListener(this);
         mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         mListView.setSelector(R.drawable.selected_state_selector);
+        mListView.setItemChecked(selectedItem, true);
 
         return view;
+    }
+
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // View holder here is not necessarily required since not accessing the
+        // list view after this method. But including for example purposes
+        ViewHolder holder = new ViewHolder(view);
+        view.setTag(holder);
     }
 
 
