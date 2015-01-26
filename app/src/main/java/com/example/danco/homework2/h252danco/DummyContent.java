@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,9 +49,7 @@ public class DummyContent {
         public String city;
         public String state;
         public String zip;
-        public int birthYear;
-        public int birthMonth;
-        public int birthDayOfMonth;
+        public Date dob;
 
         public DummyItem(String id, String name) {
             this.id = id;
@@ -59,9 +58,7 @@ public class DummyContent {
             city = "Seattle";
             state = "WA";
             zip = "98101";
-            birthYear = 2015;
-            birthMonth = 1;
-            birthDayOfMonth = 1;
+            dob = new Date();
         }
 
         @Override
@@ -83,9 +80,7 @@ public class DummyContent {
             dest.writeString(city);
             dest.writeString(state);
             dest.writeString(zip);
-            dest.writeInt(birthYear);
-            dest.writeInt(birthMonth);
-            dest.writeInt(birthDayOfMonth);
+            dest.writeLong(dob.getTime());
         }
     }
 }

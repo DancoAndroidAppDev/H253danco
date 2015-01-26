@@ -66,6 +66,13 @@ public class MainActivity extends ActionBarActivity
     }
 
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+
     private void setupDrawerLayout(Toolbar toolbar) {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 

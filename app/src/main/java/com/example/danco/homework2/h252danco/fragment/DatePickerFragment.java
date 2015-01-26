@@ -12,6 +12,9 @@ import android.widget.DatePicker;
 import com.example.danco.homework2.h252danco.DummyContent;
 import com.example.danco.homework2.h252danco.R;
 
+import java.util.Calendar;
+import java.util.Date;
+
 
 /**
  * A simple {@link android.support.v4.app.Fragment} subclass.
@@ -23,16 +26,15 @@ import com.example.danco.homework2.h252danco.R;
  */
 public class DatePickerFragment extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String BIRTH_YEAR = "year";
-    private static final String BIRTH_MONTH = "month";
-    private static final String BIRTH_DAY_OF_MONTH = "day";
 
-    private int year;
-    private int month;
-    private int day;
+    private static final String ARG_DATE = DatePickerFragment.class.getName() + ".date";
+    private static final String ARG_REQUEST_ID = DatePickerFragment.class.getName() + ".requestId";
+
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
     private DatePickerFragmentListener listener;
+    private int requestId;
+    private Date date;
 
 
     /**
@@ -46,7 +48,7 @@ public class DatePickerFragment extends DialogFragment
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface DatePickerFragmentListener {
-        public void onOkSelected(int year, int month, int dayOfMonth);
+        public void onOkSelected(int requestId, Date date);
         public void onCancelSelected();
     }
 
@@ -55,17 +57,15 @@ public class DatePickerFragment extends DialogFragment
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param year birth year1.
-     * @param month birth month.
-     * @param day birth day of month.
+     * @param requestId id.
+     * @param date birthdate.
      * @return A new instance of fragment DatePickerFragment.
      */
-    public static DatePickerFragment newInstance(int year, int month, int day) {
+    public static DatePickerFragment newInstance(int requestId, Date date) {
         DatePickerFragment fragment = new DatePickerFragment();
         Bundle args = new Bundle();
-        args.putInt(BIRTH_YEAR, year);
-        args.putInt(BIRTH_MONTH, month);
-        args.putInt(BIRTH_DAY_OF_MONTH, day);
+        args.putInt(ARG_REQUEST_ID, requestId);
+        args.putLong(ARG_DATE, date.getTime());
         fragment.setArguments(args);
         return fragment;
     }
@@ -86,23 +86,35 @@ public class DatePickerFragment extends DialogFragment
     }
 
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Bundle args = getArguments();
+        if (args != null) {
+            requestId = args.getInt(ARG_REQUEST_ID);
+            date = new Date(args.getLong(ARG_DATE));
+        }
+    }
+
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        if (savedInstanceState == null) {
-            year = 2015;
-            month = 1;
-            day = 1;
-        } else {
-            DummyContent.DummyItem item =
-                    savedInstanceState.getParcelable(getResources().getString(R.string.contact));
-            year = item.birthYear;
-            month = item.birthMonth;
-            day = item.birthDayOfMonth;
-        }
+        // Initialize our date picker dialog with the last birthday of the user...
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        DatePickerDialog dialog = new DatePickerDialog(getActivity(), this,
+                cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
-        return new DatePickerDialog(getActivity(), this, year, month, day);
+        // No birthdays allowed in the future...
+        dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+
+        // One note. The DatePickerDialog is managing the saved state for us. This is why
+        // this fragment isn't trying to do that. It is nice when that happens, but you
+        // should always verify expected behavior.
+        return dialog;
     }
 
 
@@ -115,11 +127,10 @@ public class DatePickerFragment extends DialogFragment
 
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        this.year = year;
-        this.month = monthOfYear;
-        this.day = dayOfMonth;
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, monthOfYear, dayOfMonth, 0, 0, 0);
 
-        listener.onOkSelected(year, monthOfYear, dayOfMonth);
+        listener.onOkSelected(requestId, cal.getTime());
     }
 
 

@@ -3,8 +3,10 @@ package com.example.danco.homework2.h252danco.fragment;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +18,14 @@ import com.example.danco.homework2.h252danco.R;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Date;
 
 
 public class ContactDetailFragment extends Fragment
         implements View.OnClickListener, DatePickerFragment.DatePickerFragmentListener {
     public static final String DATE_PICKER_TAG = "date_picker";
 
+    private static final int BIRTH_REQUEST_CODE = 100;
     public static final String CONTACT = "contact";
 
     private DummyContent.DummyItem item;
@@ -91,11 +95,48 @@ public class ContactDetailFragment extends Fragment
         holder.contactName.setOnClickListener(this);
         holder.streetAddress.setText(
                 String.format("%s\n%s, %s %s", item.streetAddress, item.city, item.state, item.zip));
-        holder.dob.setText(String.format("%s/%s/%s",
-                dayMonthFormat.format(item.birthYear),
-                dayMonthFormat.format(item.birthMonth),
-                dayMonthFormat.format(item.birthDayOfMonth)));
+
         holder.dob.setOnClickListener(this);
+    }
+
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+
+        // If have saved state, restore our model here.
+        if (savedInstanceState != null) {
+            item = savedInstanceState.getParcelable(CONTACT);
+        }
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ViewHolder holder = getViewHolder();
+        // holder better not be null or there is a bug earlier in the code.
+        // onResume always will have a view.
+
+        // Refresh our views. Primarily because we will know our model is restored
+        // if we had saved state by this point.
+        //
+        // Also side benefit is if user changes date format via settings
+        // and comes back to app we will honor the new format. Try it...
+        updateView(holder);
+    }
+
+
+    @Override
+    public void onPause() {
+        ViewHolder holder = getViewHolder();
+        // holder should not be null as this method is called on UI thread and before
+        // destroy view.
+
+        // Update model value for the address so we can save it later in onSaveInstanceState
+        item.streetAddress = holder.streetAddress.getText().toString();
+        super.onPause();
     }
 
 
@@ -113,12 +154,32 @@ public class ContactDetailFragment extends Fragment
     }
 
 
+    private void updateView(ViewHolder holder) {
+        if (holder == null) {
+            return;
+        }
+
+        holder.contactName.setText(item.name);
+        holder.streetAddress.setText(item.streetAddress);
+        updateBirthDateView(holder.dob, item.dob);
+    }
+
+
+    private void updateBirthDateView(TextView birthDateView, Date newDate) {
+        // This is using the user's preferred date format and locale info to
+        // format the date. Always best to show date/time in user's preferred format.
+
+        // If also showing time there is a getTimeFormat() method as well
+        birthDateView.setText(DateFormat.getDateFormat(getActivity()).format(newDate));
+    }
+
+
     @Override
     public void onClick(View v) {
 
         switch (v.getId()) {
             case R.id.contactDob:
-                DatePickerFragment fragment = DatePickerFragment.newInstance(2015, 1, 1);
+                DatePickerFragment fragment = DatePickerFragment.newInstance(BIRTH_REQUEST_CODE, item.dob);
                 fragment.show(getChildFragmentManager(), DATE_PICKER_TAG);
                 break;
         }
@@ -126,20 +187,16 @@ public class ContactDetailFragment extends Fragment
 
 
     @Override
-    public void onOkSelected(int year, int month, int dayOfMonth) {
-        this.item.birthYear = year;
-        this.item.birthMonth = month;
-        this.item.birthDayOfMonth = dayOfMonth;
-        item.birthYear = year;
-        item.birthMonth = month;
-        item.birthDayOfMonth = dayOfMonth;
+    public void onOkSelected(int requestId, @NonNull Date date) {
+        if (requestId == BIRTH_REQUEST_CODE) {
+            // update our model...
+            item.dob = date;
 
-        ViewHolder holder = getViewHolder();
-        if (holder != null) {
-            holder.dob.setText(String.format("%s/%s/%s",
-                    dayMonthFormat.format(item.birthYear),
-                    dayMonthFormat.format(item.birthMonth),
-                    dayMonthFormat.format(item.birthDayOfMonth)));
+            // update the view as well...
+            ViewHolder holder = getViewHolder();
+            if (holder != null) {
+                updateBirthDateView(holder.dob, item.dob);
+            }
         }
     }
 

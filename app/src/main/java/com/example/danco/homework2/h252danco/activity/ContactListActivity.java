@@ -37,7 +37,7 @@ public class ContactListActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_list);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_contact_list);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
