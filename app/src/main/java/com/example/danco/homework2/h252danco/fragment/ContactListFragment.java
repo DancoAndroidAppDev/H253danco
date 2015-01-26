@@ -51,6 +51,14 @@ public class ContactListFragment extends Fragment implements AbsListView.OnItemC
      */
     private ListAdapter mAdapter;
 
+
+    /**
+     *
+     */
+    public static ContactListFragment newInstance() {
+        return new ContactListFragment();
+    }
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).

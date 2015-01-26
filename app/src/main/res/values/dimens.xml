@@ -16,4 +16,7 @@
 
     <dimen name="image_size">64dp</dimen>
 
+    <!-- Default width for phones that are 320dp wide -->
+    <dimen name="navigation_drawer_width">264dp</dimen>
+    <dimen name="default_status_bar_height">24dp</dimen>
 </resources>

@@ -14,8 +14,9 @@
         <activity
             android:name=".activity.ContactDetailActivity"
             android:label="@string/title_contact_details"
-            android:parentActivityName=".activity.ContactListActivity" >
-            <meta-data
+            android:parentActivityName=".activity.ContactListActivity"
+            android:theme="@style/DrawerAppTheme" >
+        <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.danco.homework2.h252danco.activity.ContactListActivity" />
         </activity>

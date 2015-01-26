@@ -28,6 +28,11 @@ public class DynamicGridViewFragment extends Fragment {
         }
     }
 
+
+    public static DynamicGridViewFragment newInstance() {
+        return new DynamicGridViewFragment();
+    }
+
     public DynamicGridViewFragment() {
     }
 

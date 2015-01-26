@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">H252 danco</string>
+    <string name="app_name">H253 danco</string>
     <string name="hello_world">Hello world!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
     <string name="contact">contact</string>
     <string name="title_contact_details">Contact Details</string>
@@ -13,5 +15,10 @@
     <string name="image_description">Image</string>
     <string name="gridViewButtonText">Start GridView</string>
     <string name="item_subtitle_sample">Sample subtitle text</string>
+
+    <string-array name="drawerItems">
+        <item>Contact List</item>
+        <item>GridView</item>
+    </string-array>
 
 </resources>
