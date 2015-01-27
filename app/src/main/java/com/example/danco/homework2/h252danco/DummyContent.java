@@ -54,10 +54,10 @@ public class DummyContent {
         public DummyItem(String id, String name) {
             this.id = id;
             this.name = name;
-            streetAddress = "123 Demo St";
             city = "Seattle";
             state = "WA";
             zip = "98101";
+            streetAddress = String.format("123 Demo St\n%s, %s %s", city, state, zip);
             dob = new Date();
         }
 

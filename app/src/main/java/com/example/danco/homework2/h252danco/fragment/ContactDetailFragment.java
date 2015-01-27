@@ -93,8 +93,7 @@ public class ContactDetailFragment extends Fragment
         holder.contactName.setText(item.name);
         holder.contactName.setTypeface(Typeface.DEFAULT_BOLD);
         holder.contactName.setOnClickListener(this);
-        holder.streetAddress.setText(
-                String.format("%s\n%s, %s %s", item.streetAddress, item.city, item.state, item.zip));
+        holder.streetAddress.setText(item.streetAddress);
 
         holder.dob.setOnClickListener(this);
     }
