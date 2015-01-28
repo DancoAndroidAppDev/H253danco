@@ -34,7 +34,6 @@ public class MainActivity extends ActionBarActivity
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
 
     private static final int SETTINGS_REQUEST = 600;
-    private static final int ADD_CONTACT = 200;
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
@@ -194,51 +193,4 @@ public class MainActivity extends ActionBarActivity
                     .commit();
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_add_contact, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        switch(id) {
-            case R.id.addContact:
-                doAddContact();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Handle result from detail activity
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == ADD_CONTACT) {
-                //update the fragment
-                updateContentView();
-                return;
-            }
-        }
-        // Didn't handle, so let parent have shot
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-
-    private void doAddContact() {
-        Intent intent = AddContactActivity.buildIntent(this);
-        startActivityForResult(intent, ADD_CONTACT);
-    }
-
 }

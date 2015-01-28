@@ -50,15 +50,21 @@ public class ContactListFragment extends Fragment
      */
     private AbsListView mListView;
 
+
     /**
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
      */
-    private ListAdapter mAdapter;
+    private ArrayAdapter mAdapter;
+
+
+    public ArrayAdapter getAdapter() {
+        return mAdapter;
+    }
 
 
     /**
-     *
+     * Convenience method for create new instances
      */
     public static ContactListFragment newInstance(final String title) {
         ContactListFragment fragment = new ContactListFragment();
@@ -94,6 +100,11 @@ public class ContactListFragment extends Fragment
         ViewHolder holder = new ViewHolder(view);
         view.setTag(holder);
 
+        updateView(view);
+    }
+
+
+    public void updateView(View view) {
         mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,

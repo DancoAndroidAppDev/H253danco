@@ -1,15 +1,20 @@
 package com.example.danco.homework2.h252danco.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.danco.homework2.h252danco.DummyContent;
 import com.example.danco.homework2.h252danco.R;
+import com.example.danco.homework2.h252danco.activity.AddContactActivity;
 import com.example.danco.homework2.h252danco.activity.ContactDetailActivity;
 
 /**
@@ -24,6 +29,7 @@ public class ContactsFragment extends Fragment
     private static final String CONTACT_LIST_FRAG = "contactListFrag";
     private static final String DETAIL_FRAGMENT = "detail";
     private static final int CONTACT_DETAIL_REQUEST = 100;
+    private static final int ADD_CONTACT = 200;
 
 
     public static ContactsFragment newInstance() {
@@ -45,6 +51,8 @@ public class ContactsFragment extends Fragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        setHasOptionsMenu(true);
 
         haveDynamicFragment = view.findViewById(R.id.contact_detail_container) != null;
 
@@ -68,6 +76,52 @@ public class ContactsFragment extends Fragment
                         .commit();
             }
         }
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_add_contact, menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch(id) {
+            case R.id.addContact:
+                doAddContact();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Handle result from detail activity
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == ADD_CONTACT) {
+                //update the fragment -- this isn't working... :-(
+                ContactListFragment contactList =
+                        (ContactListFragment) getChildFragmentManager().findFragmentByTag(CONTACT_LIST_FRAG);
+                contactList.getAdapter().notifyDataSetChanged();
+                return;
+            }
+        }
+        // Didn't handle, so let parent have shot
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+    private void doAddContact() {
+        Intent intent = AddContactActivity.buildIntent(getActivity());
+        startActivityForResult(intent, ADD_CONTACT);
     }
 
 
