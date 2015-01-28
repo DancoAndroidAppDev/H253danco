@@ -90,14 +90,7 @@ public class ContactListFragment extends Fragment
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_contact_list, container, false);
-
-        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                DummyContent.ITEMS);
-
-        return view;
+        return inflater.inflate(R.layout.fragment_contact_list, container, false);
     }
 
 
@@ -105,10 +98,14 @@ public class ContactListFragment extends Fragment
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // View holder here is not necessarily required since not accessing the
-        // list view after this method. But including for example purposes
+
         ViewHolder holder = new ViewHolder(view);
         view.setTag(holder);
+
+        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
+                android.R.layout.simple_list_item_activated_1,
+                android.R.id.text1,
+                DummyContent.ITEMS);
 
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
