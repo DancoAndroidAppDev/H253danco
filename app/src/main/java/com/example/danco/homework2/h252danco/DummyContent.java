@@ -61,6 +61,10 @@ public class DummyContent {
             dob = new Date();
         }
 
+        public DummyItem(Parcel in) {
+            readFromParcel(in);
+        }
+
         @Override
         public String toString() {
             return name;
@@ -82,5 +86,29 @@ public class DummyContent {
             dest.writeString(zip);
             dest.writeLong(dob.getTime());
         }
+
+
+        public void readFromParcel(Parcel in) {
+            id = in.readString();
+            name = in.readString();
+            streetAddress = in.readString();
+            city = in.readString();
+            state = in.readString();
+            zip = in.readString();
+            dob = new Date(in.readLong());
+        }
+
+
+        public static final Parcelable.Creator<DummyItem> CREATOR = new Parcelable.Creator<DummyItem>() {
+
+            public DummyItem createFromParcel(Parcel in) {
+                return new DummyItem(in);
+            }
+
+            public DummyItem[] newArray(int size) {
+                return new DummyItem[size];
+            }
+
+        };
     }
 }

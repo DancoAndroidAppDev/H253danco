@@ -17,6 +17,7 @@ import android.widget.ListView;
 
 import com.example.danco.homework2.h252danco.R;
 import com.example.danco.homework2.h252danco.fragment.ContactListFragment;
+import com.example.danco.homework2.h252danco.fragment.ContactsFragment;
 import com.example.danco.homework2.h252danco.fragment.DynamicGridViewFragment;
 
 
@@ -167,10 +168,10 @@ public class MainActivity extends ActionBarActivity
         int adjustedPosition = selectedPosition - 1;
         switch (adjustedPosition) {
             case 0:
-                fragment = DynamicGridViewFragment.newInstance();
+                fragment = ContactsFragment.newInstance();
                 break;
             case 1:
-                fragment = ContactListFragment.newInstance(getString(R.string.title_contact_list));
+                fragment = DynamicGridViewFragment.newInstance();
                 break;
             case 2:
                 startActivityForResult(SettingsActivity.buildIntent(this), SETTINGS_REQUEST);

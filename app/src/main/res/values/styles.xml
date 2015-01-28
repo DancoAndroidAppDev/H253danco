@@ -12,4 +12,8 @@
         <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
     </style>
 
+    <style name="TextAppearanceBody2" parent="Base.TextAppearance.AppCompat.Body2">
+        <item name="android:textAppearance">?android:attr/panelTextAppearance</item>
+    </style>
+
 </resources>

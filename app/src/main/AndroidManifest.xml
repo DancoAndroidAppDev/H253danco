@@ -21,6 +21,14 @@
             android:name=".activity.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
+        <activity
+            android:name=".activity.ContactDetailActivity"
+            android:label="@string/title_activity_contact_detail"
+            android:parentActivityName=".activity.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.danco.homework2.h252danco.activity.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

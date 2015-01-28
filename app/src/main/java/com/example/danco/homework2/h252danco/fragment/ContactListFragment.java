@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +26,7 @@ import com.example.danco.homework2.h252danco.R;
  * <p/>
  */
 public class ContactListFragment extends Fragment
-        implements AbsListView.OnItemClickListener,
-        ContactDetailFragment.ContactDetailFragmentListener {
+        implements AbsListView.OnItemClickListener {
 
     private static final String EXTRA_VALUES =
             ContactListFragment.class.getSimpleName() + ".values";
@@ -39,17 +36,12 @@ public class ContactListFragment extends Fragment
     private static final String EXTRA_TITLE = ContactListFragment.class.getSimpleName() + ".title";
     private static final String ARG_TITLE = EXTRA_TITLE;
 
-    private static final String CONTACT_LIST_FRAG = "contactListFrag";
-    private static final String DETAIL_FRAGMENT = "detail";
-
     private int selectedItem = 0;
 
-    private boolean haveDynamicFragment = false;
+    private ContactListFragmentListener listener;
 
-    private ItemFragmentListener mListener;
-
-    public interface ItemFragmentListener {
-        public void onUpdateDynamicFragment(DummyContent.DummyItem item);
+    public interface ContactListFragmentListener {
+        public void onContactItemClick(DummyContent.DummyItem item);
     }
 
 
@@ -116,55 +108,33 @@ public class ContactListFragment extends Fragment
         mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         mListView.setSelector(R.drawable.selected_state_selector);
         mListView.setItemChecked(selectedItem, true);
+    }
 
-        haveDynamicFragment = view.findViewById(R.id.contact_detail_container) != null;
 
-        if (savedInstanceState == null) {
-            ContactListFragment contactList =
-                    ContactListFragment.newInstance(getString(R.string.title_contact_list));
-            getChildFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.contactListFragmentContainer, contactList, CONTACT_LIST_FRAG)
-                    .commit();
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        Fragment parent = getParentFragment();
+        Object obj = parent != null ? parent : activity;
+        try {
+            listener = (ContactListFragmentListener) obj;
         }
-
-        if (haveDynamicFragment) {
-            ContactDetailFragment contactDetail = (ContactDetailFragment)
-                    getChildFragmentManager().findFragmentByTag(DETAIL_FRAGMENT);
-            if (contactDetail == null) {
-                contactDetail = ContactDetailFragment.newInstance(DummyContent.ITEMS.get(0));
-                getChildFragmentManager()
-                        .beginTransaction()
-                        .add(R.id.contact_detail_container, contactDetail, DETAIL_FRAGMENT)
-                        .commit();
-            }
+        catch (ClassCastException e) {
+            throw new ClassCastException(obj.getClass().getSimpleName()
+                    + " must implement ContactListFragmentListener");
         }
     }
 
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (null != mListener) {
+        if (null != listener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onUpdateDynamicFragment(DummyContent.ITEMS.get(position));
             mListView.setItemChecked(position, true);
+            listener.onContactItemClick(DummyContent.ITEMS.get(position));
         }
     }
-
-
-    @Override
-    public void onUpdateContactDetail(DummyContent.DummyItem item) {
-        if (haveDynamicFragment) {
-            ContactDetailFragment fragment =
-                    ContactDetailFragment.newInstance(item);
-            getChildFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.contact_detail_container, fragment, DETAIL_FRAGMENT)
-                    .commit();
-        }
-    }
-
 
 
     @Override
