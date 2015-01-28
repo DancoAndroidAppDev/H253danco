@@ -7,9 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.example.danco.homework2.h252danco.DummyContent;
 import com.example.danco.homework2.h252danco.R;

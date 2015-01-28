@@ -34,7 +34,7 @@ public class DummyContent {
         addItem(new DummyItem("3", "Hank Rearden"));
     }
 
-    private static void addItem(DummyItem item) {
+    public static void addItem(DummyItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
