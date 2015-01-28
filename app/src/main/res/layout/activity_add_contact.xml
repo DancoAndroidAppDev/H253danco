@@ -24,50 +24,43 @@
         android:layout_below="@id/contact_name"
         />
 
-    <LinearLayout
-        android:id="@+id/address_line_2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
+    <EditText
+        android:id="@+id/contact_city"
+        android:hint="City"
+        android:lines="1"
+        android:layout_width="140dp"
+        android:layout_height="64dp"
         android:layout_below="@id/contact_street_address"
-        >
-        <EditText
-            android:id="@+id/contact_city"
-            android:hint="City"
-            android:lines="1"
-            android:layout_width="140dp"
-            android:layout_height="64dp"
-            android:layout_below="@id/contact_street_address"
-            />
+        />
 
-        <EditText
-            android:id="@+id/contact_state"
-            android:hint="St"
-            android:lines="1"
-            android:layout_width="32dp"
-            android:layout_height="64dp"
-            android:layout_below="@id/contact_street_address"
-            android:layout_alignRight="@id/contact_city"
-            />
+    <EditText
+        android:id="@+id/contact_state"
+        android:hint="St"
+        android:lines="1"
+        android:layout_width="32dp"
+        android:layout_height="64dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_toRightOf="@+id/contact_city"
+        android:layout_toEndOf="@+id/contact_city"/>
 
-        <EditText
-            android:id="@+id/contact_zip"
-            android:hint="zip code"
-            android:lines="1"
-            android:layout_width="80dp"
-            android:layout_height="64dp"
-            android:layout_below="@id/contact_street_address"
-            android:layout_alignRight="@id/contact_state"
-            />
+    <EditText
+        android:id="@+id/contact_zip"
+        android:hint="zip code"
+        android:lines="1"
+        android:layout_width="80dp"
+        android:layout_height="64dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignRight="@+id/contact_street_address"
+        android:layout_alignEnd="@+id/contact_street_address"/>
 
-        </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@+id/address_line_2"
+        android:layout_below="@+id/contact_city"
         android:layout_marginTop="128dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout">
 
         <Button
             android:id="@+id/button_add_contact"
