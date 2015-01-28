@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Platform compatibility theme here. Specific for the OS versions
+             that will be found for this file. API 14-20 in this application -->
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="BaseAppTheme">
+        <!-- Customize your theme here. Use this for style info that is common to all OS versions -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/RedButtonStyle</item>
+    </style>
+
+    <style name="BaseDrawerAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Platform compatibility theme here. Specific for the OS versions
+             that will be found for this file. API 14-20 in this application -->
+    </style>
+
+    <style name="DrawerAppTheme" parent="BaseDrawerAppTheme">
+        <!-- customization specific for drawer here -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/OrangeButton</item>
+        <item name="windowActionBarOverlay">false</item>
+
+        <item name="android:imageButtonStyle">@style/ImageButtonAppTheme</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/gridview_item_background</item>
+
+    </style>
+
+</resources>

@@ -6,11 +6,11 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/DrawerAppTheme" >
+        android:theme="@style/BaseDrawerAppTheme" >
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/DrawerAppTheme" >
+            android:theme="@style/BaseDrawerAppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

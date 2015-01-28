@@ -16,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.danco.homework2.h252danco.R;
-import com.example.danco.homework2.h252danco.fragment.ContactListFragment;
 import com.example.danco.homework2.h252danco.fragment.ContactsFragment;
 import com.example.danco.homework2.h252danco.fragment.DynamicGridViewFragment;
 
