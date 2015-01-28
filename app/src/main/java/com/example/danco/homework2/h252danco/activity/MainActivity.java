@@ -16,8 +16,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.danco.homework2.h252danco.R;
+import com.example.danco.homework2.h252danco.adapter.DrawerListAdapter;
 import com.example.danco.homework2.h252danco.fragment.ContactsFragment;
 import com.example.danco.homework2.h252danco.fragment.DynamicGridViewFragment;
+
+import java.util.Arrays;
 
 
 public class MainActivity extends ActionBarActivity
@@ -122,11 +125,8 @@ public class MainActivity extends ActionBarActivity
         // in your theme.  In AS you can go directly to an asset by right clicking and "Go To"->
         // "Declaration". There is a keyboard option as well which is shown in the menu. It varies
         // by platform so I'm not listing it here.
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                titleArray);
+        DrawerListAdapter adapter = new DrawerListAdapter(
+                Arrays.asList(getResources().getStringArray(R.array.drawerItems)));
 
         drawerList.setAdapter(adapter);
         // Mark our row as "activated"
