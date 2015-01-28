@@ -32,6 +32,11 @@ public class ContactDetailFragment extends Fragment
 
     private final NumberFormat dayMonthFormat = new DecimalFormat("00");
 
+    private ContactDetailFragmentListener listener;
+
+    public interface ContactDetailFragmentListener {
+        public void onUpdateContactDetail(DummyContent.DummyItem item);
+    }
 
     public ContactDetailFragment() {
         // Required empty public constructor

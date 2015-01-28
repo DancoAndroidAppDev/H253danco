@@ -1,19 +1,15 @@
 package com.example.danco.homework2.h252danco.activity;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,25 +19,28 @@ import com.example.danco.homework2.h252danco.R;
 import com.example.danco.homework2.h252danco.fragment.ContactListFragment;
 import com.example.danco.homework2.h252danco.fragment.DynamicGridViewFragment;
 
+
 public class MainActivity extends ActionBarActivity
         implements AdapterView.OnItemClickListener {
-    private static final String TAG = MainActivity.class.getName();
 
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
+
+    private static final int SETTINGS_REQUEST = 600;
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private ListView drawerList;
 
+    // Using 1 as default since the header view in list will cause all items to shift by 1
     private int selectedPosition = 1;
     private String[] titleArray;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         titleArray = getResources().getStringArray(R.array.drawerItems);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
 
@@ -65,13 +64,17 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(STATE_SELECTED_POSITION, selectedPosition);
+    }
 
     private void setupDrawerLayout(Toolbar toolbar) {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -145,32 +148,6 @@ public class MainActivity extends ActionBarActivity
         return getResources().getDimensionPixelSize(resId);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        return true;
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         drawerList.setItemChecked(position, true);
@@ -182,27 +159,33 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
-
     private void updateContentView() {
 
-        Intent intent = null;
+        Fragment fragment = null;
 
         // subtracting 1 to account for "header" view in list
         int adjustedPosition = selectedPosition - 1;
         switch (adjustedPosition) {
             case 0:
-                intent = ContactListActivity.buildIntent(this);
+                fragment = DynamicGridViewFragment.newInstance();
                 break;
             case 1:
-                intent = DynamicGridViewActivity.buildIntent(this);
+                fragment = ContactListFragment.newInstance(getString(R.string.title_contact_list));
+                break;
+            case 2:
+                startActivityForResult(SettingsActivity.buildIntent(this), SETTINGS_REQUEST);
                 break;
         }
-
         getSupportActionBar().setTitle(titleArray[adjustedPosition]);
 
-        if (intent != null) {
-            startActivity(intent);
+        // Theoretically you will never have a null fragment, but this
+        // can help by avoiding a crash if you add an item in list, but
+        // forget to add to this method.
+        if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment, "FRAG")
+                    .commit();
         }
     }
-
 }

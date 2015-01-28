@@ -14,6 +14,9 @@
     <dimen name="grid_item_vertical_padding">8dp</dimen>
     <dimen name="grid_item_horizontal_padding">16dp</dimen>
 
+    <dimen name="alt_layout_minWidth">200dp</dimen>
+    <dimen name="alt_layout_minHeight">320dp</dimen>
+
     <dimen name="image_size">64dp</dimen>
 
     <!-- Default width for phones that are 320dp wide -->

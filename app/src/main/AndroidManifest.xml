@@ -8,19 +8,6 @@
         android:label="@string/app_name"
         android:theme="@style/DrawerAppTheme" >
         <activity
-            android:name=".activity.ContactListActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
-            android:name=".activity.ContactDetailActivity"
-            android:label="@string/title_contact_details"
-            android:parentActivityName=".activity.ContactListActivity"
-            android:theme="@style/DrawerAppTheme" >
-        <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.danco.homework2.h252danco.activity.ContactListActivity" />
-        </activity>
-        <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/DrawerAppTheme" >
@@ -31,12 +18,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.DynamicGridViewActivity"
-            android:label="@string/title_activity_dynamic_grid_view"
-            android:theme="@style/DrawerAppTheme" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.danco.homework2.h252danco.activity.MainActivity" />
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings" >
         </activity>
     </application>
 

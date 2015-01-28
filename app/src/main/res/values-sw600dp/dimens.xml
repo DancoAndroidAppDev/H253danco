@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="alt_layout_minHeight">600dp</dimen>
-    <dimen name="alt_layout_minWidth">400dp</dimen>
+    <!-- Configure width of nav drawer for tables. Per material design
+         should be no wider than 5 times the standard increment on tablet.
+         Standard increment is 64dp -->
+    <dimen name="navigation_drawer_width">320dp</dimen>
 
 </resources>

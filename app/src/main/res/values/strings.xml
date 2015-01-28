@@ -9,16 +9,24 @@
     <string name="contact">contact</string>
     <string name="title_contact_details">Contact Details</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_contact_list">Contact List</string>
     <string name="contact_list_activity">Start Contact List</string>
     <string name="title_activity_dynamic_grid_view">DynamicGridViewActivity</string>
     <string name="sample_subtitle_text">Sample subtitle text</string>
     <string name="image_description">Image</string>
     <string name="gridViewButtonText">Start GridView</string>
-    <string name="item_subtitle_sample">Sample subtitle text</string>
+
+    <string name="item_subtitle_sample">Lorem ipsum dolor sit amet, cursus iaculis quisque, tortor placerat vel at sagittis et risus.</string>
+    <string name="xml_title_default">XML Fragment</string>
+    <string name="dynamic_title_default">Dynamic Fragment</string>
+    <string name="xml_button_title">Update Dynamic Fragment Title</string>
+    <string name="show_dialog_button_title">Show dialog</string>
+    <string name="dynamic_button_title">Update XML Fragment Title</string>
 
     <string-array name="drawerItems">
-        <item>Contact List</item>
         <item>GridView</item>
+        <item>Contact List</item>
+        <item>Settings</item>
     </string-array>
 
 </resources>
