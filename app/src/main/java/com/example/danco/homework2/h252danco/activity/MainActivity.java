@@ -1,5 +1,6 @@
 package com.example.danco.homework2.h252danco.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -33,6 +34,7 @@ public class MainActivity extends ActionBarActivity
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
 
     private static final int SETTINGS_REQUEST = 600;
+    private static final int ADD_CONTACT = 200;
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
@@ -219,9 +221,24 @@ public class MainActivity extends ActionBarActivity
     }
 
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Handle result from detail activity
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == ADD_CONTACT) {
+                //update the fragment
+                updateContentView();
+                return;
+            }
+        }
+        // Didn't handle, so let parent have shot
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
     private void doAddContact() {
         Intent intent = AddContactActivity.buildIntent(this);
-        startActivity(intent);
+        startActivityForResult(intent, ADD_CONTACT);
     }
 
 }

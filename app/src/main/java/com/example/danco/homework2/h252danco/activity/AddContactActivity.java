@@ -1,5 +1,6 @@
 package com.example.danco.homework2.h252danco.activity;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
@@ -16,9 +17,11 @@ import android.widget.Toast;
 
 import com.example.danco.homework2.h252danco.DummyContent;
 import com.example.danco.homework2.h252danco.R;
+import com.example.danco.homework2.h252danco.fragment.ContactListFragment;
 
 public class AddContactActivity extends ActionBarActivity implements View.OnClickListener {
     private static final String TAG = AddContactActivity.class.getSimpleName();
+    private static final String CONTACT_LIST_FRAG = "contactListFrag";
 
     private EditText contactName;
     private EditText streetAddress;

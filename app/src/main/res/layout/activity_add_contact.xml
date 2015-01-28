@@ -37,7 +37,7 @@
         android:id="@+id/contact_state"
         android:hint="St"
         android:lines="1"
-        android:layout_width="32dp"
+        android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_above="@+id/linearLayout"
         android:layout_toRightOf="@+id/contact_city"
