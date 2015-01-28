@@ -1,4 +1,4 @@
-package com.example.danco.homework2.h252danco.fragment;
+package com.example.danco.homework2.h253danco.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,11 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
-import com.example.danco.homework2.h252danco.R;
-import com.example.danco.homework2.h252danco.adapter.GridAdapter;
+import com.example.danco.homework2.h253danco.R;
+import com.example.danco.homework2.h253danco.adapter.GridAdapter;
 
 import java.util.ArrayList;
 

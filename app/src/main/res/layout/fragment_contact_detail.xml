@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.danco.homework2.h252danco.fragment.ContactDetailFragment">
+    tools:context="com.example.danco.homework2.h253danco.fragment.ContactDetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView android:id="@+id/contact_name"

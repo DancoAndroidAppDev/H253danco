@@ -1,4 +1,4 @@
-package com.example.danco.homework2.h252danco.adapter;
+package com.example.danco.homework2.h253danco.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.danco.homework2.h252danco.R;
+import com.example.danco.homework2.h253danco.R;
 
 import java.util.List;
 

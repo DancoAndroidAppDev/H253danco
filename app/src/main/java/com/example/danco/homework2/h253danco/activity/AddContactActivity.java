@@ -1,6 +1,5 @@
-package com.example.danco.homework2.h252danco.activity;
+package com.example.danco.homework2.h253danco.activity;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
@@ -9,16 +8,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.danco.homework2.h252danco.DummyContent;
-import com.example.danco.homework2.h252danco.R;
-import com.example.danco.homework2.h252danco.fragment.ContactListFragment;
+import com.example.danco.homework2.h253danco.DummyContent;
+import com.example.danco.homework2.h253danco.R;
 
 public class AddContactActivity extends ActionBarActivity implements View.OnClickListener {
     private static final String TAG = AddContactActivity.class.getSimpleName();

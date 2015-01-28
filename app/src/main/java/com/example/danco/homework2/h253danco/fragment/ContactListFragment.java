@@ -1,4 +1,4 @@
-package com.example.danco.homework2.h252danco.fragment;
+package com.example.danco.homework2.h253danco.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,12 +10,11 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.danco.homework2.h252danco.DummyContent;
-import com.example.danco.homework2.h252danco.R;
+import com.example.danco.homework2.h253danco.DummyContent;
+import com.example.danco.homework2.h253danco.R;
 
 
 /**

@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="com.example.danco.homework2.h252danco.activity.AddContactActivity">
+      tools:context="com.example.danco.homework2.h253danco.activity.AddContactActivity">
     <item android:id="@+id/addContact"
           android:icon="@drawable/ic_action_action_account_box"
           android:title="@string/add_contact"

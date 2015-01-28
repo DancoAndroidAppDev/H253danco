@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        tools:context="com.example.danco.homework2.h252danco.fragment.ContactListFragment"/>
+        tools:context="com.example.danco.homework2.h253danco.fragment.ContactListFragment"/>
 
     <FrameLayout
         android:id="@+id/contactDetailContainer"

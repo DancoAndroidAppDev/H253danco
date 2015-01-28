@@ -1,4 +1,4 @@
-package com.example.danco.homework2.h252danco.fragment;
+package com.example.danco.homework2.h253danco.fragment;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -9,9 +9,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.widget.DatePicker;
 
-import com.example.danco.homework2.h252danco.DummyContent;
-import com.example.danco.homework2.h252danco.R;
-
 import java.util.Calendar;
 import java.util.Date;
 
@@ -19,7 +16,7 @@ import java.util.Date;
 /**
  * A simple {@link android.support.v4.app.Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link com.example.danco.homework2.h252danco.fragment.DatePickerFragment.DatePickerFragmentListener} interface
+ * {@link com.example.danco.homework2.h253danco.fragment.DatePickerFragment.DatePickerFragmentListener} interface
  * to handle interaction events.
  * Use the {@link DatePickerFragment#newInstance} factory method to
  * create an instance of this fragment.

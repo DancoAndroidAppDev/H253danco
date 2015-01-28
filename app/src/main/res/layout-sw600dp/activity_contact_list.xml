@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/contactListFragment"
-        android:name="com.example.danco.homework2.h252danco.fragment.ContactListFragment"
+        android:name="com.example.danco.homework2.h253danco.fragment.ContactListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

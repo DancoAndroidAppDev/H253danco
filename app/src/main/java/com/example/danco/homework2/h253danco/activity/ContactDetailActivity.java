@@ -1,4 +1,4 @@
-package com.example.danco.homework2.h252danco.activity;
+package com.example.danco.homework2.h253danco.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,9 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.danco.homework2.h252danco.DummyContent;
-import com.example.danco.homework2.h252danco.R;
-import com.example.danco.homework2.h252danco.fragment.ContactDetailFragment;
+import com.example.danco.homework2.h253danco.DummyContent;
+import com.example.danco.homework2.h253danco.R;
+import com.example.danco.homework2.h253danco.fragment.ContactDetailFragment;
 
 public class ContactDetailActivity extends ActionBarActivity {
 

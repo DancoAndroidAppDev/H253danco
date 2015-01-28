@@ -1,6 +1,5 @@
-package com.example.danco.homework2.h252danco.fragment;
+package com.example.danco.homework2.h253danco.fragment;
 
-import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.danco.homework2.h252danco.DummyContent;
-import com.example.danco.homework2.h252danco.R;
+import com.example.danco.homework2.h253danco.DummyContent;
+import com.example.danco.homework2.h253danco.R;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

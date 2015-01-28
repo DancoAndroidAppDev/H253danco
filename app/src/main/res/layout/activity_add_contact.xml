@@ -5,7 +5,7 @@
                 android:layout_height="match_parent"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                tools:context="com.example.danco.homework2.h252danco.activity.AddContactActivity">
+                tools:context="com.example.danco.homework2.h253danco.activity.AddContactActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_add_contact"

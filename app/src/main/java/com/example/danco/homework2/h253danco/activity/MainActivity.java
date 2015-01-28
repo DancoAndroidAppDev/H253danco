@@ -1,7 +1,5 @@
-package com.example.danco.homework2.h252danco.activity;
+package com.example.danco.homework2.h253danco.activity;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,18 +10,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.danco.homework2.h252danco.R;
-import com.example.danco.homework2.h252danco.adapter.DrawerListAdapter;
-import com.example.danco.homework2.h252danco.fragment.ContactsFragment;
-import com.example.danco.homework2.h252danco.fragment.DynamicGridViewFragment;
+import com.example.danco.homework2.h253danco.R;
+import com.example.danco.homework2.h253danco.adapter.DrawerListAdapter;
+import com.example.danco.homework2.h253danco.fragment.ContactsFragment;
+import com.example.danco.homework2.h253danco.fragment.DynamicGridViewFragment;
 
 import java.util.Arrays;
 

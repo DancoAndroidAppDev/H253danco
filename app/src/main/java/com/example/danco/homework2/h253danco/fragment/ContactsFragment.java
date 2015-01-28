@@ -1,4 +1,4 @@
-package com.example.danco.homework2.h252danco.fragment;
+package com.example.danco.homework2.h253danco.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,10 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.danco.homework2.h252danco.DummyContent;
-import com.example.danco.homework2.h252danco.R;
-import com.example.danco.homework2.h252danco.activity.AddContactActivity;
-import com.example.danco.homework2.h252danco.activity.ContactDetailActivity;
+import com.example.danco.homework2.h253danco.DummyContent;
+import com.example.danco.homework2.h253danco.R;
+import com.example.danco.homework2.h253danco.activity.AddContactActivity;
+import com.example.danco.homework2.h253danco.activity.ContactDetailActivity;
 
 /**
  * Created by danco on 1/27/15.

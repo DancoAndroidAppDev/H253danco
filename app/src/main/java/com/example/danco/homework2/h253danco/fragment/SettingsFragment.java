@@ -1,10 +1,7 @@
-package com.example.danco.homework2.h252danco.fragment;
+package com.example.danco.homework2.h253danco.fragment;
 
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.support.v4.app.Fragment;
-
-import com.example.danco.homework2.h252danco.R;
 
 /**
  * Created by danco on 1/27/15.

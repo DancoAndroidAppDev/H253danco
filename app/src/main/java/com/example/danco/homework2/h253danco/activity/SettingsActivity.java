@@ -1,4 +1,4 @@
-package com.example.danco.homework2.h252danco.activity;
+package com.example.danco.homework2.h253danco.activity;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -16,10 +16,9 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 
-import com.example.danco.homework2.h252danco.R;
+import com.example.danco.homework2.h253danco.R;
 
 import java.util.List;
 
