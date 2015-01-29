@@ -172,7 +172,7 @@ public class MainActivity extends ActionBarActivity
                 fragment = DynamicGridViewFragment.newInstance();
                 break;
             case 2:
-                startActivityForResult(SettingsActivity.buildIntent(this), SETTINGS_REQUEST);
+                startActivity(SettingsActivity.buildIntent(this));
                 break;
         }
         getSupportActionBar().setTitle(titleArray[adjustedPosition]);

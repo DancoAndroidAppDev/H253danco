@@ -40,7 +40,7 @@ public class AddContactActivity extends ActionBarActivity implements View.OnClic
         setContentView(R.layout.activity_add_contact);
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar_add_contact));
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
 
         contactName = (EditText) findViewById(R.id.contact_name);

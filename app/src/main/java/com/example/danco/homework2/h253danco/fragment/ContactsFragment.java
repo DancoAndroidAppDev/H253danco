@@ -81,6 +81,7 @@ public class ContactsFragment extends Fragment
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_add_contact, menu);
     }
 
@@ -108,8 +109,8 @@ public class ContactsFragment extends Fragment
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == ADD_CONTACT) {
                 //update the fragment -- this isn't working... :-(
-                ContactListFragment contactList =
-                        (ContactListFragment) getChildFragmentManager().findFragmentByTag(CONTACT_LIST_FRAG);
+                ContactListFragment contactList = (ContactListFragment)
+                        getChildFragmentManager().findFragmentByTag(CONTACT_LIST_FRAG);
                 contactList.getAdapter().notifyDataSetChanged();
                 return;
             }
