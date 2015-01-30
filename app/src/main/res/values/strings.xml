@@ -31,5 +31,12 @@
 
     <string name="title_activity_contact_detail">ContactDetailActivity</string>
     <string name="title_activity_add_contact">AddContactActivity</string>
+    <string name="summary_switch1">This is a sample summary for the contact preference.</string>
+    <string name="title_switch1">Contact Preference</string>
+    <string name="summary_checkbox2">This is a sample summary for the grid view preference</string>
+    <string name="title_checkbox2">Grid View preference</string>
+    <string name="subcategory_title">Sample subtitle</string>
+    <string name="summary_list3">Sample summary for the list preference</string>
+    <string name="title_list3">List preference</string>
 
 </resources>
