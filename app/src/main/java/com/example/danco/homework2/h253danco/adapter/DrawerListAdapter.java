@@ -49,13 +49,13 @@ public class DrawerListAdapter extends BaseAdapter {
         View view = convertView;
 
         if (view == null) {
-            view = LayoutInflater.from(parent.getContext()).inflate(
-                    R.layout.drawer_list, parent, false);
             // Using a view holder as adapter views are recycled. Only need to create a view if the
             // convert view is null
-            view.setTag(new ViewHolder(view));
+            view = LayoutInflater.from(parent.getContext()).inflate(
+                    R.layout.drawer_list, parent, false);
         }
 
+        view.setTag(new ViewHolder(view));
         ViewHolder holder = (ViewHolder) view.getTag();
         holder.title.setText(sections.get(position));
         holder.icon.setImageResource(R.drawable.ic_action_action_accessibility);
